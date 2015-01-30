@@ -1,4 +1,6 @@
 Community::Application.routes.draw do
+  get "countries/new"
+  get "countries/index"
   resources :notifications
 
   resources :referrals
