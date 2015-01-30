@@ -8,6 +8,8 @@ Community::Application.routes.draw do
     get :search, on: :collection
   end
 
+  resources :countries
+
   root to: 'home#index'
   devise_for :users, :controllers => { :registrations => "registrations" }
   resources :home

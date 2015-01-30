@@ -1,4 +1,5 @@
 class State < ActiveRecord::Base
-  has_many :districts
-  has_many :users
+  belongs_to :country
+  has_many   :districts
+  has_many   :users
 end
