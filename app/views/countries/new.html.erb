@@ -1,2 +1,8 @@
-<h1>Countries#new</h1>
-<p>Find me in app/views/countries/new.html.erb</p>
+<div class="container">
+  <h1>Countries#new</h1>
+  <%= form_for @country do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "Add country" %>
+  <% end %>
+
+</div>

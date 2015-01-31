@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 contentEditable="true"> <%= @country.name %> </h1>
+
+  <%= form_tag country_states_path(@country), multipart: true do %>
+    <%= label_tag "Upload csv" %>
+    <%= file_field_tag :file %>
+    <%= submit_tag %>
+  <% end %>
+
+  <%= link_to "Delete all states", delete_all_country_states_path(@country), confirm: "Are you sure", method: :delete %>
+
+  <br/>
+
+  <% @all_states.each_slice(3) do |states| %>
+
+    <div class="row">
+
+      <% states.each do |state| %>
+        <div class="col-md-4">
+        <%= state %>
+        </div>
+      <% end %>
+    
+    </div>
+  <% end %>
+
+</div>

@@ -1,6 +1,4 @@
 Community::Application.routes.draw do
-  get "countries/new"
-  get "countries/index"
   resources :notifications
 
   resources :referrals
@@ -10,7 +8,11 @@ Community::Application.routes.draw do
     get :search, on: :collection
   end
 
-  resources :countries
+  resources :countries do
+    resources :states, only: :create do
+      delete :delete_all, on: :collection
+    end
+  end
 
   root to: 'home#index'
   devise_for :users, :controllers => { :registrations => "registrations" }
